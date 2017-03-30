@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XaGanApp.Validations"
+             x:Class="XaGanApp.Pages.ContentPage_UpTin"
+             Title="Đăng bài">
+
+    <StackLayout HorizontalOptions="FillAndExpand" Padding="10,0,10,0">
+        <Label Text="Đăng tin" HorizontalOptions="Center" Font="16,Bold"></Label>
+        
+        <!--begin form-->
+        <StackLayout x:Name="MainForm">
+            
+            <!--<Label Text="Loại:"></Label>-->
+            <Picker HorizontalOptions="Fill" x:Name="Input_Type"></Picker>
+
+            <!--<Label Text="E-mail:"></Label>-->
+            <Entry HorizontalOptions="Fill" Placeholder="E-mail:" x:Name="Input_Mail">
+                <Entry.Behaviors>
+
+                    <local:EmailValidation />
+
+                </Entry.Behaviors>
+            </Entry>
+
+            <!--<Label Text="Số điện thoại:"></Label>-->
+            <Entry HorizontalOptions="Fill" Placeholder="Số điện thoại:" x:Name="Input_Phone">
+                <Entry.Behaviors>
+
+                    <local:NumberValidation />
+
+                </Entry.Behaviors>
+            </Entry>
+
+            <!--<Label Text="Địa chỉ:"></Label>-->
+            <Entry HorizontalOptions="Fill" Placeholder="Địa chỉ:" x:Name="Input_Address"></Entry>
+
+            <!--Diện tích + Giá -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Entry HorizontalOptions="Fill" Placeholder="Diện tích (m2)" Grid.Row="0" Grid.Column="0" x:Name="Input_Square">
+                    <Entry.Behaviors>
+                        <local:NumberValidation />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry HorizontalOptions="Fill" Placeholder="Giá:" Grid.Row="0" Grid.Column="1" x:Name="Input_Price">
+                    <Entry.Behaviors>
+                        <local:NumberValidation />
+                    </Entry.Behaviors>
+                </Entry>
+            </Grid>
+            <!--End Diện tích + giá -->
+
+            <Label Text="Mô tả chi tiết: "></Label>
+            <Editor HorizontalOptions="Fill" HeightRequest="100" x:Name="Input_Details"></Editor>
+
+            <!--Begin Image picker-->
+            <StackLayout VerticalOptions = "FillAndExpand" HeightRequest="150">
+
+                <Button Text="Chọn hình ảnh" HeightRequest="40"  WidthRequest="150" BackgroundColor="Gray"></Button>
+                
+                <ListView ItemsSource="{Binding Items}" HasUnevenRows="true">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Text}" Detail="{Binding Detail}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <!--end Image picker-->
+
+            <!--Button upload-->
+            <Button HorizontalOptions="Center" 
+                    VerticalOptions="End" 
+                    BackgroundColor="Green" 
+                    HeightRequest="40" 
+                    WidthRequest="150" 
+                    FontSize="16" 
+                    Text="Đăng tin" 
+                    Clicked="btn_post_upload">
+            </Button>
+            
+        </StackLayout>
+        <!--end form-->
+        
+    </StackLayout>
+</ContentPage>
