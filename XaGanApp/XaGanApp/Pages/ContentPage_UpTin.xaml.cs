@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using XaGanApp.Code;
 using XaGanApp.Object;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -22,6 +23,7 @@ namespace XaGanApp.Pages
                     {"Thuê mặt bằng", "Thuê mặt bằng" },
                     {"Thuê phòng", "Thuê phòng" }
                 };
+        PostDetails model = new PostDetails();
 
         public ContentPage_UpTin()
         {
@@ -38,6 +40,7 @@ namespace XaGanApp.Pages
         public class ContentPage_UpTinViewModel : INotifyPropertyChanged
         {
             public ObservableCollection<Item> Items { get; }
+            public PostDetails postInfo { get; set; }
 
             public ContentPage_UpTinViewModel()
             {
@@ -54,16 +57,7 @@ namespace XaGanApp.Pages
                 
             }
 
-            public bool btn_post_upload(object sender, EventArgs e)
-            {
-                bool result = false;
-                PostDetails model = new PostDetails();
-                
-
-                return result;
-            }
-
-
+           
             public event PropertyChangedEventHandler PropertyChanged;
             void OnPropertyChanged([CallerMemberName]string propertyName = "") =>
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -77,6 +71,41 @@ namespace XaGanApp.Pages
             }
 
         }
-        
+
+    //    picker.SelectedIndexChanged += (sender, args) =>
+    //            {
+    //                if (picker.SelectedIndex == -1)
+    //                {
+    //                    boxView.Color = Color.Default;
+    //                }
+    //                else
+    //                {
+    //                    string colorName = picker.Items[picker.SelectedIndex];
+    //boxView.Color = nameToColor[colorName];
+    //                }
+    //            };
+
+
+        private void btn_post_upload(object sender, EventArgs e)
+        {
+            
+            model.post_type = Input_Type.Items[Input_Type.SelectedIndex];
+            model.post_email = Input_Mail.Text.ToString();
+            model.post_phoneNumber = long.Parse(Input_Phone.Text.ToString());
+            model.post_address = Input_Address.Text.ToString();
+            model.post_square = double.Parse(Input_Square.Text.ToString());
+            model.post_price = double.Parse(Input_Price.Text.ToString());
+            model.post_additonalInfo = Input_Details.Text.ToString();
+
+            SendRequest.Upload_Post(model);
+
+            btn.Text = "Clicked";
+
+        }
+
+        private void Input_Mail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

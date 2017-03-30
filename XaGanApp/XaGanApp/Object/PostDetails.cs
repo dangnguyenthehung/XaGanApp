@@ -12,7 +12,7 @@ namespace XaGanApp.Object
 
         public string post_email { get; set; }
 
-        public int post_phoneNumber { get; set; }
+        public long post_phoneNumber { get; set; }
 
         public string post_address { get; set; }
 

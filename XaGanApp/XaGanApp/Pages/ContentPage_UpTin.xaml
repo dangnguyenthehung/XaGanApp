@@ -9,13 +9,13 @@
         <Label Text="Đăng tin" HorizontalOptions="Center" Font="16,Bold"></Label>
         
         <!--begin form-->
-        <StackLayout x:Name="MainForm">
+        <StackLayout x:Name="MainForm" >
             
             <!--<Label Text="Loại:"></Label>-->
             <Picker HorizontalOptions="Fill" x:Name="Input_Type"></Picker>
 
             <!--<Label Text="E-mail:"></Label>-->
-            <Entry HorizontalOptions="Fill" Placeholder="E-mail:" x:Name="Input_Mail">
+            <Entry HorizontalOptions="Fill" Placeholder="E-mail:" x:Name="Input_Mail" TextChanged="Input_Mail_TextChanged">
                 <Entry.Behaviors>
 
                     <local:EmailValidation />
@@ -85,7 +85,8 @@
                     WidthRequest="150" 
                     FontSize="16" 
                     Text="Đăng tin" 
-                    Clicked="btn_post_upload">
+                    Clicked="btn_post_upload"
+                    x:Name="btn">
             </Button>
             
         </StackLayout>
