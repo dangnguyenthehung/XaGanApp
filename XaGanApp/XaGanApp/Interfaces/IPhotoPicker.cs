@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace XaGanApp.Interfaces
 {
-    interface IPhotoPicker
+    public interface IPhotoPicker
     {
+        // pick images
+        Task<List<string>> openBtn_Click();
+        List<string> pathList();
+
+        // upload images
+        Task<List<string>> Upload();
     }
 }

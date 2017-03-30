@@ -15,7 +15,7 @@
             <Picker HorizontalOptions="Fill" x:Name="Input_Type"></Picker>
 
             <!--<Label Text="E-mail:"></Label>-->
-            <Entry HorizontalOptions="Fill" Placeholder="E-mail:" x:Name="Input_Mail" TextChanged="Input_Mail_TextChanged">
+            <Entry HorizontalOptions="Fill" Placeholder="E-mail:" x:Name="Input_Mail">
                 <Entry.Behaviors>
 
                     <local:EmailValidation />
@@ -65,15 +65,34 @@
             <!--Begin Image picker-->
             <StackLayout VerticalOptions = "FillAndExpand" HeightRequest="150">
 
-                <Button Text="Chọn hình ảnh" HeightRequest="40"  WidthRequest="150" BackgroundColor="Gray"></Button>
+                <Button Text="Chọn hình ảnh" HeightRequest="40"  WidthRequest="150" BackgroundColor="Gray" Clicked="PickPhoto_Clicked"></Button>
                 
-                <ListView ItemsSource="{Binding Items}" HasUnevenRows="true">
+                <!--<ListView ItemsSource="{Binding Items}" HasUnevenRows="true">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Text}" Detail="{Binding Detail}"/>
+                            --><!--<TextCell Text="{Binding Text}" Detail="{Binding Detail}"/>--><!--
+                            
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                </ListView>-->
+                
+                <!--hold selected img-->
+
+                <Grid x:Name="ImageContain">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                </Grid>
+
             </StackLayout>
             <!--end Image picker-->
 
