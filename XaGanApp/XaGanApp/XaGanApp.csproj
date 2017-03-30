@@ -41,6 +41,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Object\PostDetails.cs" />
     <Compile Include="Pages\ContentPage_UpTin.xaml.cs">
       <DependentUpon>ContentPage_UpTin.xaml</DependentUpon>
     </Compile>

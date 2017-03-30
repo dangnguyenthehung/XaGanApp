@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using XaGanApp.Object;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -54,7 +54,14 @@ namespace XaGanApp.Pages
                 
             }
 
-            
+            public bool btn_post_upload(object sender, EventArgs e)
+            {
+                bool result = false;
+                PostDetails model = new PostDetails();
+                
+
+                return result;
+            }
 
 
             public event PropertyChangedEventHandler PropertyChanged;
@@ -70,5 +77,6 @@ namespace XaGanApp.Pages
             }
 
         }
+        
     }
 }
