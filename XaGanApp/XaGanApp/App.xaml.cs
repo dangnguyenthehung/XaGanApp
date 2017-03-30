@@ -13,7 +13,7 @@ namespace XaGanApp
         {
             InitializeComponent();
 
-            MainPage = new XaGanApp.MainPage();
+            MainPage = new Pages.MainTabPage();
         }
 
         protected override void OnStart()
