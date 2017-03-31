@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Code\Convert.cs" />
     <Compile Include="Controllers\UploadPostController.cs" />
     <Compile Include="Framework\PostDetail.cs" />
     <Compile Include="Framework\Post_Image.cs" />
@@ -135,6 +136,7 @@
     </Compile>
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Object\PostDetails.cs" />
+    <Compile Include="Object\PostImageTableType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

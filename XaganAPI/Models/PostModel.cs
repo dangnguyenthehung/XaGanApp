@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,7 @@ namespace XaganAPI.Models
             context = new Xagan2017TestDbContext();
         }
 
-        public void Insert_PostDetails(Object.PostDetails post)
+        public long Insert_PostDetails(Object.PostDetails post)
         {
             if (post != null)
             {
@@ -31,10 +32,31 @@ namespace XaganAPI.Models
                     new SqlParameter("@post_additonalInfo", post.post_additonalInfo)
                 };
 
-                var res = context.Database.ExecuteSqlCommand("Sp_InsertPost @post_type,@post_email,@post_phoneNumber,@post_address,@post_square,@post_price,@post_additonalInfo", sqlParams);
+                var res = context.Database.SqlQuery<long>("Sp_InsertPost @post_type,@post_email,@post_phoneNumber,@post_address,@post_square,@post_price,@post_additonalInfo", sqlParams).SingleOrDefault();
 
-                System.Diagnostics.Debug.WriteLine(res.ToString());
+                //System.Diagnostics.Debug.WriteLine("Inserted ID is: " + res.ToString());
+
+                return res;
             }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public void Insert_PostImg(DataTable table)
+        {
+            var param = new SqlParameter("@PostImageTableType", table);
+            param.TypeName = "dbo.PostImageTableType";
+
+            object[] sqlParams =
+                {
+                    param
+                };
+            
+            var res = context.Database.ExecuteSqlCommand("Sp_InsertPostImage @PostImageTableType", sqlParams);
+
+            //System.Diagnostics.Debug.WriteLine("return is: " + res.ToString());
         }
     }
 }
