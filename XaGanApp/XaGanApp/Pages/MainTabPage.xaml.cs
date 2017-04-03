@@ -19,6 +19,7 @@ namespace XaGanApp.Pages
 
             Children.Add(new ListViewPage_XemTin());
             Children.Add(new ContentPage_UpTin());
+            Children.Add(new ListViewPage1());
         }
     }
 }

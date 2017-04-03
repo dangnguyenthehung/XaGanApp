@@ -38,14 +38,19 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Code\GetPost.cs" />
     <Compile Include="Code\SendRequest.cs" />
     <Compile Include="Interfaces\IPhotoPicker.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Object\PostDetail.cs" />
     <Compile Include="Object\PostDetails.cs" />
     <Compile Include="Pages\ContentPage_UpTin.xaml.cs">
       <DependentUpon>ContentPage_UpTin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ListViewPage1.xaml.cs">
+      <DependentUpon>ListViewPage1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ListViewPage_XemTin.xaml.cs">
       <DependentUpon>ListViewPage_XemTin.xaml</DependentUpon>
@@ -112,6 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\ContentPage_UpTin.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ListViewPage1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

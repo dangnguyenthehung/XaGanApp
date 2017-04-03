@@ -58,5 +58,21 @@ namespace XaganAPI.Models
 
             //System.Diagnostics.Debug.WriteLine("return is: " + res.ToString());
         }
+
+        public List<PostDetail> Get_PostDetails(long id)
+        {
+            
+                object[] sqlParams =
+                {
+                    new SqlParameter("@Id", id)
+                };
+
+                var res = context.Database.SqlQuery<PostDetail>("Sp_GetPostDetails @Id", sqlParams).ToList();
+
+                //System.Diagnostics.Debug.WriteLine("Inserted ID is: " + res.ToString());
+
+                return res;
+            
+        }
     }
 }

@@ -5,7 +5,7 @@
              x:Class="XaGanApp.Pages.ContentPage_UpTin"
              Title="Đăng bài">
 
-    <StackLayout HorizontalOptions="FillAndExpand" Padding="10,0,10,0">
+    <StackLayout HorizontalOptions="FillAndExpand" Padding="10,0,10,10">
         <Label Text="Đăng tin" HorizontalOptions="Center" Font="16,Bold"></Label>
         
         <!--begin form-->
@@ -101,7 +101,7 @@
                     VerticalOptions="End" 
                     BackgroundColor="Green" 
                     HeightRequest="40" 
-                    WidthRequest="150" 
+                    WidthRequest="200" 
                     FontSize="16" 
                     Text="Đăng tin" 
                     Clicked="btn_post_upload"

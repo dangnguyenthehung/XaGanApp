@@ -42,7 +42,7 @@ namespace XaGanApp.Pages
         public class ContentPage_UpTinViewModel : INotifyPropertyChanged
         {
             public ObservableCollection<Item> Items { get; }
-            public PostDetails postInfo { get; set; }
+            public PostDetail postInfo { get; set; }
 
             public ContentPage_UpTinViewModel()
             {
@@ -99,6 +99,8 @@ namespace XaGanApp.Pages
 
         private async void btn_post_upload(object sender, EventArgs e)
         {
+            btn.Text = "Đang xử lý....";
+            btn.IsEnabled = false;
 
             model.post_type = Input_Type.Items[Input_Type.SelectedIndex];
             model.post_email = Input_Mail.Text.ToString();
@@ -111,7 +113,12 @@ namespace XaGanApp.Pages
             await Upload_Images(); // upload images and get img url
 
 
-            btn.Text = "Clicked";
+            btn.Text = "Xong";
+            clearText();
+            await Task.Delay(2000);
+            btn.IsEnabled = true;
+
+            btn.Text = "Đăng tin";
 
         }
 
@@ -200,6 +207,18 @@ namespace XaGanApp.Pages
             string newUrl = "http://" + originalUrl;
 
             return newUrl;
+        }
+
+        private void clearText()
+        {
+            Input_Type.SelectedIndex = 0;
+            Input_Mail.Text = "";
+            Input_Phone.Text = "";
+            Input_Address.Text = "";
+            Input_Square.Text = "";
+            Input_Price.Text = "";
+            Input_Details.Text = "";
+            ImageContain.Children.Clear();
         }
     }
 }
