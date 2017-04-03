@@ -135,14 +135,27 @@ namespace XaGanApp.Pages
                         break;
                     }
 
-                    ImageContain.Children.Add(new Image()
+                    //ImageContain.Children.Add(new Image()
+                    //{
+                    //    Source = ImageSource.FromFile(item),
+                    //    HorizontalOptions = LayoutOptions.Center,
+                    //    VerticalOptions = LayoutOptions.Center
+
+                    //}, col, row);
+
+                    ImageContain.Children.Add(new Frame
                     {
-                        Source = ImageSource.FromFile(item),
-                        HorizontalOptions = LayoutOptions.Center,
-                        VerticalOptions = LayoutOptions.Center
-                        
-                    },
-                    col, row);
+                        Content = new Image()
+                        {
+                            Source = ImageSource.FromFile(item),
+                            HorizontalOptions = LayoutOptions.Center,
+                            VerticalOptions = LayoutOptions.Center
+                        },
+                        OutlineColor = Color.Black,
+                        Padding = 1,
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        HorizontalOptions = LayoutOptions.Center
+                    }, col, row);
 
                     col++;
 

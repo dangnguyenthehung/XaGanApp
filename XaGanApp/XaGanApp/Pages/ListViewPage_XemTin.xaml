@@ -15,17 +15,18 @@
             IsRefreshing="{Binding IsBusy, Mode=OneWay}"
             RefreshCommand="{Binding RefreshDataCommand}">
     <ListView.Header>
-      <StackLayout Padding="10" 
-                   Orientation="Horizontal"
-                   HorizontalOptions="FillAndExpand"
-                   BackgroundColor="#dadada">
-        <Label Text="Header"
-               HorizontalTextAlignment="Center"
-               HorizontalOptions="FillAndExpand"
-               TextColor="Black"
-               FontAttributes="Bold"/>
-      </StackLayout>
+        <StackLayout Padding="10" 
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand">
+                <Label Text="Header"
+            HorizontalTextAlignment="Center"
+            HorizontalOptions="FillAndExpand"
+            TextColor="Black"
+            FontAttributes="Bold"
+            FontSize="16"/>
+        </StackLayout>
     </ListView.Header>
+      
     <!--Built in Cells-->
     <ListView.ItemTemplate>
       <DataTemplate>
@@ -49,17 +50,6 @@
       </DataTemplate>
     </ListView.ItemTemplate>
     -->
-    <ListView.Footer>
-      <StackLayout Padding="10"
-                   Orientation="Horizontal"
-                   HorizontalOptions="FillAndExpand"
-                   BackgroundColor="#dadada">
-        <Label Text="Footer" 
-               HorizontalTextAlignment="Center" 
-               HorizontalOptions="FillAndExpand" 
-               TextColor="Black"
-               FontAttributes="Bold"/>
-      </StackLayout>
-    </ListView.Footer>
+    
   </ListView>
 </ContentPage>
