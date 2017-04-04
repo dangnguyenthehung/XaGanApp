@@ -18,18 +18,46 @@ namespace XaGanApp.Pages
     public partial class ListViewPage_XemTin : ContentPage
     {
         List<PostDetail> list { get; set; }
+        public ObservableCollection<PostDetail> ItemList { get; set; }
 
-        public ListViewPage_XemTin()
+
+        public ListViewPage_XemTin(List<PostDetail> list)
         {
             InitializeComponent();
-            
-            Task.Run(async () =>
+            //BindingContext = new ListViewPage_XemTinViewModel();
+
+
+            // Do stuff in here
+            //list = await GetPost.Get_All_Post();
+
+            //ItemList = new ObservableCollection<PostDetail>();
+            //postData;
+            ItemList = new ObservableCollection<PostDetail>();
+            if (list == null)
             {
-                // Do stuff in here
-                list = await GetPost.Get_All_Post();
-                BindingContext = new ListViewPage_XemTinViewModel(list);
-            });
+                ItemList.Add(new PostDetail()
+                {
+                    post_type = "Waiting....",
+                    post_address = "Loading data..."
+                });
+            }
+            else
+            {
+                foreach (var item in list)
+                {
+                    ItemList.Add(item);
+                }
+            }
+            BindingContext = new ListViewPage_XemTinViewModel(ItemList);
+
+
         }
+
+        //private async void GetData()
+        //{
+        //    list = await GetPost.Get_All_Post();
+        //    ItemList = new ObservableCollection<PostDetail>();
+        //}
 
         void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
             => ((ListView)sender).SelectedItem = null;
@@ -51,13 +79,22 @@ namespace XaGanApp.Pages
     class ListViewPage_XemTinViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<PostDetail> Items { get; set; }
-        
-    //public ObservableCollection<Grouping<string, Item>> ItemsGrouped { get; }
 
-    public ListViewPage_XemTinViewModel(List<PostDetail> list)
+        //public ObservableCollection<Grouping<string, Item>> ItemsGrouped { get; }
+
+        public ListViewPage_XemTinViewModel()
         {
-            
-            Items = new ObservableCollection<PostDetail>(list);
+            Items = new ObservableCollection<PostDetail>();
+            Items.Add(new PostDetail()
+            {
+                post_type = "Waiting....",
+                post_address = "Loading data..."
+            });
+        }
+        public ListViewPage_XemTinViewModel(ObservableCollection<PostDetail> Itemlist)
+        {
+            Items = new ObservableCollection<PostDetail>();
+            Items = Itemlist;
             
 
             RefreshDataCommand = new Command(

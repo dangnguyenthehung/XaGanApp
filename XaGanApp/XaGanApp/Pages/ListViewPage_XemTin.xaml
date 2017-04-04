@@ -9,7 +9,7 @@
             HasUnevenRows="true"
             IsPullToRefreshEnabled="true"
             CachingStrategy="RecycleElement"
-            IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
             RefreshCommand="{Binding RefreshDataCommand}">
     <ListView.Header>
         <StackLayout Padding="10" 
