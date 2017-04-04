@@ -23,25 +23,77 @@
                 FontSize="16"/>
             </StackLayout>
     </ListView.Header>
-      
-    <!--Built in Cells-->
-    <!--<ListView.ItemTemplate>
-      <DataTemplate>
-        <TextCell Text="{Binding post_type}"
-                  Detail="{Binding post_address}"/>
-      </DataTemplate>
-    </ListView.ItemTemplate>-->
-    
-    <!--Custom View Cells-->
     
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding post_type}" 
-                  />
-            <Label Text="{Binding post_address}" 
-                  />
+                    
+          <StackLayout HorizontalOptions="FillAndExpand" Padding="5,10,5,10">
+
+                        <Grid HorizontalOptions="FillAndExpand" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Frame WidthRequest="80"
+                                   HeightRequest="80"
+                                   OutlineColor="Gray" 
+                                   Padding="1"
+                                   HorizontalOptions="Start"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="4"
+                                    Grid.Column="0">
+                                
+                                <Image></Image>
+                                
+                            </Frame>
+
+                            <Label Text="{Binding post_type}" 
+                                   
+                                   Font="Bold,14" Grid.Row="0" 
+                                   Grid.Column="1" 
+                                   Grid.ColumnSpan="2"/>
+
+                            <Label Text="{Binding post_address, StringFormat = 'Địa chỉ: {0}'}" 
+                                   
+                                   Grid.Row="1" 
+                                   Grid.RowSpan="2"
+                                   Grid.Column="1" 
+                                   Grid.ColumnSpan="2"/>
+
+                            <Label Text="{Binding post_price, StringFormat = '{0:N0}đ'}"
+                                   VerticalOptions="Center"
+                                   Grid.Row="0" 
+                                   Grid.RowSpan="2"
+                                   Grid.Column="3" />
+
+                            <Label Text="{Binding post_square, StringFormat = '{0} m2'}" 
+                                   Grid.Row="3" 
+                                   Grid.Column="3"/>
+
+                            <Label Text="{Binding post_email, StringFormat = 'email: {0}'}"
+                                   Font="Italic,12"
+                                   Grid.Row="3" 
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2"/>
+
+                            <BoxView BackgroundColor="Gray"
+                                     Grid.Column="0"
+                                     Grid.ColumnSpan="4"
+                                     Grid.Row="4"/>
+                        </Grid>
+                        
+           
           </StackLayout>
         </ViewCell>
       </DataTemplate>
