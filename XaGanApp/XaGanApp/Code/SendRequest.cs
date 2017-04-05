@@ -16,8 +16,9 @@ namespace XaGanApp.Code
         {
             
             var client = new HttpClient();
-            client.BaseAddress = new Uri("http://dangnguyenthehung.somee.com/XaganAPI/api/UploadPost/");
+            //client.BaseAddress = new Uri("http://dangnguyenthehung.somee.com/XaganAPI/api/UploadPost/");
             //client.BaseAddress = new Uri("http://localhost:64259/api/UploadPost/");
+            client.BaseAddress = new Uri("http://xaganapitest.gear.host/api/UploadPost/");
 
             var jsonObject = JsonConvert.SerializeObject(post);
             System.Diagnostics.Debug.WriteLine(jsonObject);
@@ -28,7 +29,7 @@ namespace XaGanApp.Code
 
             var result = await client.PostAsync(client.BaseAddress, content);
 
-            System.Diagnostics.Debug.WriteLine("img count = " + result.ToString());
+            System.Diagnostics.Debug.WriteLine("result: " + result.ToString());
             
         }
     }

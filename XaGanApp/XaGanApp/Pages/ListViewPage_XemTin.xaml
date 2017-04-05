@@ -47,25 +47,25 @@
 
                             <Frame WidthRequest="80"
                                    HeightRequest="80"
-                                   OutlineColor="Gray" 
+                                   OutlineColor="Transparent" 
                                    Padding="1"
                                    HorizontalOptions="Start"
                                     Grid.Row="0"
                                     Grid.RowSpan="4"
                                     Grid.Column="0">
-                                
-                                <Image></Image>
+
+                                <Image Source="{Binding Url}" HorizontalOptions="Center" VerticalOptions="Center"></Image>
                                 
                             </Frame>
 
                             <Label Text="{Binding post_type}" 
-                                   
-                                   Font="Bold,14" Grid.Row="0" 
+                                   Font="Bold,14" 
+                                   Grid.Row="0" 
                                    Grid.Column="1" 
                                    Grid.ColumnSpan="2"/>
 
                             <Label Text="{Binding post_address, StringFormat = 'Địa chỉ: {0}'}" 
-                                   
+                                   FontSize="12"
                                    Grid.Row="1" 
                                    Grid.RowSpan="2"
                                    Grid.Column="1" 

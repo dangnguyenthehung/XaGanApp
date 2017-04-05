@@ -7,6 +7,7 @@ using System.Web.Http;
 using XaganAPI.Models;
 using XaganAPI.Framework;
 using Newtonsoft.Json;
+using XaganAPI.Object;
 
 namespace XaganAPI.Controllers
 {
@@ -19,10 +20,10 @@ namespace XaganAPI.Controllers
         }
 
         // GET: api/GetPost/5
-        public List<PostDetail> Get(long id)
+        public List<PostDetails_Get> Get(long id)
         {
             PostModel model = new PostModel();
-            List<PostDetail> listPost = model.Get_PostDetails(id);
+            List<PostDetails_Get> listPost = model.Get_PostDetails(id);
 
             //var jsonObject = JsonConvert.SerializeObject(listPost);
 

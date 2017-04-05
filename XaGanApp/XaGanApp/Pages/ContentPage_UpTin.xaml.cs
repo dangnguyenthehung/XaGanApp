@@ -42,7 +42,7 @@ namespace XaGanApp.Pages
         public class ContentPage_UpTinViewModel : INotifyPropertyChanged
         {
             public ObservableCollection<Item> Items { get; }
-            public PostDetail postInfo { get; set; }
+            //public PostDetail postInfo { get; set; }
 
             public ContentPage_UpTinViewModel()
             {
@@ -106,8 +106,8 @@ namespace XaGanApp.Pages
             model.post_email = Input_Mail.Text.ToString();
             model.post_phoneNumber = long.Parse(Input_Phone.Text.ToString());
             model.post_address = Input_Address.Text.ToString();
-            model.post_square = double.Parse(Input_Square.Text.ToString());
-            model.post_price = double.Parse(Input_Price.Text.ToString());
+            model.post_square = decimal.Parse(Input_Square.Text.ToString());
+            model.post_price = decimal.Parse(Input_Price.Text.ToString());
             model.post_additonalInfo = Input_Details.Text.ToString();
 
             await Upload_Images(); // upload images and get img url

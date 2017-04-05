@@ -19,7 +19,8 @@ namespace XaGanApp.Code
         {
             var client = new HttpClient();
             //client.BaseAddress = new Uri("http://dangnguyenthehung.somee.com/XaganAPI/api/GetPost/0");
-            client.BaseAddress = new Uri("http://localhost:64259/api/GetPost/0");
+            client.BaseAddress = new Uri("http://xaganapitest.gear.host/api/GetPost/0");
+            //client.BaseAddress = new Uri("http://localhost:64259/api/GetPost/0");
             var response = await client.GetAsync(client.BaseAddress, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
             
             var result = await response.Content.ReadAsStringAsync();

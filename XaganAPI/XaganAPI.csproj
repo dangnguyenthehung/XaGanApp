@@ -162,12 +162,13 @@
     <Compile Include="Framework\PostDetail.cs" />
     <Compile Include="Framework\Post_Image.cs" />
     <Compile Include="Framework\sysdiagram.cs" />
-    <Compile Include="Framework\Xagan2017TestDbContext.cs" />
+    <Compile Include="Framework\xagantestDBContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Object\PostDetails.cs" />
+    <Compile Include="Object\PostDetails_Get.cs" />
     <Compile Include="Object\PostImageTableType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -180,6 +181,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\XaganAPI.pubxml" />
+    <None Include="Properties\PublishProfiles\xaganapitest - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\xaganapitest - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

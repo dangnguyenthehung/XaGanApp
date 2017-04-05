@@ -5,19 +5,21 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using XaganAPI.Framework;
+using XaganAPI.Object;
 
 namespace XaganAPI.Models
 {
     public class PostModel
     {
-        Xagan2017TestDbContext context = null;
+        //Xagan2017TestDbContext context = null;
+        xagantestDBContext context = null;
 
         public PostModel()
         {
-            context = new Xagan2017TestDbContext();
+            context = new xagantestDBContext();
         }
 
-        public long Insert_PostDetails(Object.PostDetails post)
+        public long Insert_PostDetails(PostDetails post)
         {
             if (post != null)
             {
@@ -59,7 +61,7 @@ namespace XaganAPI.Models
             //System.Diagnostics.Debug.WriteLine("return is: " + res.ToString());
         }
 
-        public List<PostDetail> Get_PostDetails(long id)
+        public List<PostDetails_Get> Get_PostDetails(long id)
         {
             
                 object[] sqlParams =
@@ -67,9 +69,17 @@ namespace XaganAPI.Models
                     new SqlParameter("@Id", id)
                 };
 
-                var res = context.Database.SqlQuery<PostDetail>("Sp_GetPostDetails @Id", sqlParams).ToList();
+                var res = context.Database.SqlQuery<PostDetails_Get>("Sp_GetAllPost @Id", sqlParams).ToList();
 
                 //System.Diagnostics.Debug.WriteLine("Inserted ID is: " + res.ToString());
+
+            foreach(var item in res)
+            {
+                if(item.Url == null)
+                {
+                    item.Url = "http://www.dangnguyenthehung.somee.com/UploadToServer/Uploads/default.png";
+                }
+            }
 
                 return res;
             

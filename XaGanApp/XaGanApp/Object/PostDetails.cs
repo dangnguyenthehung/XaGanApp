@@ -16,9 +16,9 @@ namespace XaGanApp.Object
 
         public string post_address { get; set; }
 
-        public double post_square { get; set; }
+        public decimal post_square { get; set; }
 
-        public double post_price { get; set; }
+        public decimal post_price { get; set; }
 
         public string post_additonalInfo { get; set; }
 

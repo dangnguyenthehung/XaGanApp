@@ -108,6 +108,7 @@ namespace XaGanApp.Pages
         {
             IsBusy = true;
             //Load Data Here
+
             await Task.Delay(2000);
 
             IsBusy = false;

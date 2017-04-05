@@ -5,7 +5,7 @@ using System.Web;
 
 namespace XaganAPI.Object
 {
-    public class PostDetails
+    public class PostDetails_Get
     {
         public string post_type { get; set; }
 
@@ -21,6 +21,6 @@ namespace XaganAPI.Object
 
         public string post_additonalInfo { get; set; }
 
-        public List<string> post_images { get; set; }
+        public string Url { get; set; } // post image url
     }
 }

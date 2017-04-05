@@ -24,5 +24,7 @@ namespace XaGanApp.Object
 
         public string post_additonalInfo { get; set; }
 
+        public string Url { get; set; } // get first image url of each post
+
     }
 }
